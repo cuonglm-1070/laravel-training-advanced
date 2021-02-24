@@ -14,7 +14,7 @@ class SendEmail extends Command
      *
      * @var string
      */
-    protected $signature = 'mail:send {address}';
+    protected $signature = 'mail:send';
 
     /**
      * The console command description.
@@ -40,7 +40,7 @@ class SendEmail extends Command
      */
     public function handle()
     {
-        $address = $this->argument('address');
+        $address = $this->ask('What is your email address');
 
         $validator = Validator::make(['address' => $address], ['address' => 'email']);
 
